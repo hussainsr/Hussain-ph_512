@@ -111,7 +111,7 @@ plt.grid(alpha=0.75)
 plt.xlabel('z-axis')    
 plt.scatter(z_points, E_z3) 
 plt.plot(z_points, E_z2) 
-plt.legend(('My-integrator','Integarte.quad'),loc='upper right')     
+plt.legend(('Integarte.quad','My-integrator'),loc='upper right')     
 plt.show()   
 plt.close()
 
