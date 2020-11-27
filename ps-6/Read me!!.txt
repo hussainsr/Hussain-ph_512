@@ -1,0 +1,7 @@
+ps-6-Notebook.ipynb contains the assignment with all the code, plots and results show.
+ps-6.py	contains just the code (also present in the notebook)	
+
+rand_points.txt contains data that was provided
+rand_points2.txt contains data I generated on my system
+
+in addition I have included the images that show the planes in the data for question 1.
