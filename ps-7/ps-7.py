@@ -42,6 +42,7 @@ print('(V[0,0], V[5,0]):  ',V[0,0],V[5,0])
 
 plt.title('Potential from point charge at origin')
 plt.imshow(V)
+plt.close()
 
 
 	
@@ -92,7 +93,7 @@ def cg(rhs,x0,mask,green_fft,fun=rho2pot_masked):
           rsqr=rsqr_new
      return x
 
-n=n//2
+n=n//2 		# Choosing smaller size to match with potential after padding
 bc=np.zeros([n,n])
 mask=np.zeros([n,n],dtype='bool')
 mask[0,:]=True
