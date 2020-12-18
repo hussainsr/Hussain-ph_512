@@ -151,7 +151,7 @@ K = np.zeros(itter)
 x = [[g_size/2-2,g_size/2,g_size/2],[g_size/2+2,g_size/2,g_size/2]]
 x = np.asarray(x)
 v = [[0,1,0],[0,-1,0]]
-v = np.asarray(v)*0
+v = np.asarray(v)*0 # Setting velocity to zero
 
 pp = Particle(x,v,g_size)
 for j in range(itter):
@@ -169,8 +169,8 @@ E = -U[1:] + 0.5*(K[:-1]+K[1:])
 # ---------------------------------------------------------------------------
 print("\n\nPart 3")
 itter = 200
-n = 10000
-g_size = 64
+n = 100000
+g_size = 128
 self_shield = 2				
 dt = self_shield**(-1.5)*0.05
 
@@ -203,6 +203,7 @@ for j in range(itter):
 	plt.savefig('images/part3-'+str(j)+'.png', dpi=50)	
 	plt.close()	
 
+E = -U[1:] + 0.5*(K[:-1]+K[1:])
 
 # ---------------------------------------------------------------------------
 # Part 3.1
@@ -239,7 +240,7 @@ for j in range(itter):
 	plt.savefig('images/part3(1)-'+str(j)+'.png', dpi=50)	
 	plt.close()	
 
-E = U[1:] + 0.5*(K[:-1]+K[1:])
+E = -U[1:] + 0.5*(K[:-1]+K[1:])
 
 # ----------------------------------------------------------------------------		
 # Part 4
@@ -270,7 +271,6 @@ for i in range(g_size):
 		for k in range(g_size):
 			if prob[i,j,k] > np.random.rand(): 	# Picking points based on probablity
 				x.append([i,j,k]) 
-print(len(x))				
 x = np.asarray(x)				
 
 g_size = 128
@@ -286,7 +286,7 @@ pp = Particle(x,v,g_size)
 for j in range(itter):
 	print(j)
 	for i in range(5):		
-		K,U = pp.update(dt,True)		
+		K,U = pp.update(dt,True)		# Periodic boundary conditions
 	
 	fig=plt.figure(figsize=(10,10))#Create 3D axes
 	try: ax=fig.add_subplot(111,projection="3d")
